@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block titulo %}Modificar Productos{% endblock titulo %}
+
+
+{% block contenido %}
+<h1>Modificar Productos</h1>
+        <form action="actualizar" method="POST">
+        <table>
+            <tr>
+                <td>
+                    <label>SKU </label>
+                </td>
+                <td>
+                    <input type="number" name="txtSku" id="txtSku" required value="{{ p.getSku() }}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Nombre </label>
+                </td>
+                <td>
+                    <input type="text" name="txtNombre" id="txtNombre" required value="{{ p.getNombre() }}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Precio </label>
+                </td>
+                <td>
+                    <input type="number" name="txtPrecio" id="txtPrecio"  required min="100" max="99990" value="{{ p.getPrecio() }}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Stock </label>
+                </td>
+                <td>
+                    <input type="number" name="txtStock" id="txtStock"  required  max="100" value="{{ p.getStock }}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Categoria </label>
+                </td>
+                <td>
+                    <select name="cboCategoria" id="cboCategoria" required>
+                        <option value="">Seleccionar: </option>
+                        {% for categoria in categorias %}
+                        
+                        <option value="{{ categoria.getId() }}">{{ categoria.getNombre() }}</option>
+                        
+                        {% endfor %}
+                        
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Marca </label>
+                </td>
+                <td>
+                    <select name="cboMarca" id="cboMarca" required>
+                        <option value="">Seleccionar: </option>
+                        {% for marca in marcas %}
+                        	<option value="{{ marca.getId() }}">{{ marca.getNombre() }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Descripcion </label>
+                </td>
+                <td>
+                    <input type="text" name="txtDescripcion" id="txtDescripcion" required value="{{ p.getDescripcion() }}">
+                </td>
+            </tr>
+            
+            <tr>
+                <!--comentario este td fue utilizado para que el boton quede al lado derecho-->
+                <td></td>
+                <td>
+                    <input type="submit" value="Modificar" name="btnModificar" id="btnModificar">
+                </td>
+            </tr>
+        </table>
+         
+        </form>
+        <h3>{{ mensaje }}</h3>
+
+{% endblock contenido %}

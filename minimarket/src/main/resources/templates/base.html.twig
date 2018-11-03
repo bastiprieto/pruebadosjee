@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>
+	{% block titulo %} {% endblock titulo %}
+	</title>
+</head>
+<body>
+	<h1>Minimarket Donde El Milton</h1>
+	
+	<ul>
+	<li><a href="agregar.html">Agregar Producto</a></li>
+	<li><a href="listar.html">Listar productos</a></li>
+	<li><a href="agregarCategoria.html">Agregar categorias</a></li>
+	<li><a href="listarCategoria.html">Listar categorias</a></li>
+	<li><a href="agregarMarca.html">Agregar marcas</a></li>
+	<li><a href="listarMarca.html">Listar marcas</a></li>
+	</ul>
+	{% block contenido %}
+	
+	{% endblock contenido %}
+</body>
+</html>

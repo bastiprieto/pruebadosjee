@@ -1,0 +1,34 @@
+
+{% extends 'base.html.twig' %}
+
+{% block titulo %}Lista de categorias {% endblock titulo %}
+
+
+{% block contenido %}
+
+	<h1>Listado de categorias</h1>
+	
+	<table>
+	<tr>
+	<th>nombre:</th>
+	<th>Descripcion:</th>
+	<th>Opciones</th>
+	</tr>
+	
+	{% for c in categorias %}
+	<tr>
+	
+	<td>{{ c.getNombreCategoria()}}</td>
+	<td>{{ c.getDescripcionCategoria() }}</td>
+	<td>
+	<a href="eliminar?idCategoria={{ c.idCategoria() }}">Eliminar</a>
+	<a href="modificar?idCategoria={{ c.idCategoria() }}">Modificar</a>
+	</td>
+	
+	</tr>
+	{% endfor %}
+	
+	</table>
+	<h4>{{ mensaje }}</h4>
+	
+	{% endblock contenido %}

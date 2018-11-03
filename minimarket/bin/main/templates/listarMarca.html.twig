@@ -1,0 +1,34 @@
+
+{% extends 'base.html.twig' %}
+
+{% block titulo %}Lista de Marcas {% endblock titulo %}
+
+
+{% block contenido %}
+
+	<h1>Listado de marcas</h1>
+	
+	<table>
+	<tr>
+	<th>nombre:</th>
+	<th>Descripcion:</th>
+	<th>Opciones</th>
+	</tr>
+	
+	{% for m in marcas %}
+	<tr>
+	
+	<td>{{ m.getNombre()}}</td>
+	<td>{{ m.getDescripcion() }}</td>
+	<td>
+	<a href="eliminar?id={{ m.id() }}">Eliminar</a>
+	<a href="modificar?id={{ m.id() }}">Modificar</a>
+	</td>
+	
+	</tr>
+	{% endfor %}
+	
+	</table>
+	<h4>{{ mensaje }}</h4>
+	
+	{% endblock contenido %}

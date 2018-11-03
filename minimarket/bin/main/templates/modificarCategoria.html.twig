@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block titulo %}Modificar Categoria{% endblock titulo %}
+
+
+{% block contenido %}
+<h1>Ingreso de Categorias</h1>
+        <form action="actualizar" method="POST">
+        <table>
+        <tr>
+        <td>
+        <label>Id:</label>
+        </td>
+        <td><input type="hidden" name="txtIdCategoria" id="txtIdCategoria" value="{{ c.getIdCategoria() }}" /></td>
+        </tr>
+            
+            <tr>
+                <td>
+                    <label>Nombre </label>
+                </td>
+                <td>
+                    <input type="text" name="txtNombre" id="txtNombre" required value="{{ c.getNombreCategoria() }}">
+                </td>
+            </tr>
+           
+            <tr>
+               
+                <td>
+                    <label>Descripcion </label>
+                </td>
+                <td>
+                    <input type="text" name="txtDescripcion" id="txtDescripcion" required value="{{ c.DescripcionCategoria() }}">
+                </td>
+            </tr>
+            
+            <tr>
+                <!--comentario este td fue utilizado para que el boton quede al lado derecho-->
+                <td></td>
+                <td>
+                    <input type="submit" value="Modificar" name="btnModificar" id="btnModificar">
+                </td>
+            </tr>
+        </table>
+         
+        </form>
+        <h3>{{ mensaje }}</h3>
+
+{% endblock contenido %}
